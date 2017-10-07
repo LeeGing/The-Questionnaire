@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
-    <h1> Welcome to Questions </h1>
-    <button v-on:click="add">ADD</button>
-    <button v-on:click="sub">SUB</button>
-    <p v-if="displaynumber === 5"> {{displaynumber}} </p>
-    <p v-if="displaynumber === 3"> {{displaynumber}} </p>
-    <p v-if="displaynumber === 0"> {{displaynumber}} </p>
+    <div>
+      <router-view></router-view>
+      <h1> Welcome to Questions </h1>
+      <button v-on:click="add">ADD</button>
+      <button v-on:click="sub">SUB</button>
+      <p> Points: {{displaynumber}} </p>
+      <button v-on:click="add">ADD</button>
+      <button v-on:click="sub">SUB</button>
+    </div>
+    <div>
+      <!-- Dynamic direction of questions would be nice. -->
+      <!-- Static index would be easier. -->
+      <p v-if="displaynumber === 0">I like being in an office.</p>
+      <button v-on:click="add">True</button>
+      <button v-on:click="sub">False</button>
+      <p v-if="displaynumber > 2"> Sounds like you're going to love working as a receptionist! </p>
+      <p v-if="displaynumber < 5"> - - - - - </p>
+      <p v-if="displaynumber < 0"> You probably don't want to be a receptionist.</p>
+
+    </div>
   </div>
 </template>
 
