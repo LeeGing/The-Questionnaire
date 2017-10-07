@@ -5,7 +5,9 @@
     <h1> Welcome to Questions </h1>
     <button v-on:click="add">ADD</button>
     <button v-on:click="sub">SUB</button>
-    <p> {{axelateral}} </p>
+    <p v-if="displaynumber === 5"> {{displaynumber}} </p>
+    <p v-if="displaynumber === 3"> {{displaynumber}} </p>
+    <p v-if="displaynumber === 0"> {{displaynumber}} </p>
   </div>
 </template>
 
@@ -14,7 +16,7 @@ export default {
   name: 'app',
   data () {
     return {
-      axelateral: 0
+      displaynumber: 0
     }
   },
   methods: {
@@ -23,10 +25,10 @@ export default {
       window.location = 'http://www.youtube.com'
     },
     add: function () {
-      this.axelateral += 1
+      this.displaynumber += 1
     },
     sub: function () {
-      this.axelateral -= 1
+      this.displaynumber -= 1
     }
   }
 }
