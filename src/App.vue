@@ -25,10 +25,12 @@
         <p v-if="displaynumber < 0" class="comment"> You probably don't want to be a lumberjack.</p>
         <p> Points: {{displaynumber}} </p>
       </div>
+
 <!-- Element Bender Questions -->
     <button v-on:click='bender'>Bender Questions</button>
     <div v-if="bendernumber % 2 === 0">
 <!-- Element Bender Questions -->
+      <img src="https://i.pinimg.com/originals/48/3a/b0/483ab0cec0963d9f13e7675febb9e873.jpg" height="200px">
       <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
       <div v-if="questionnumber === 1">
         <p>Question 1: Which element are you most comfortable with?</p>
@@ -66,7 +68,6 @@
         <button v-on:click="DFunc">Rock</button>
       </div>
       <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
-      
 <!-- Element Bender Comments -->
       <p v-if="AWin === 1" class="comment"> RESULT: FIRE BENDER </p>
       <p v-if="BWin === 1" class="comment"> RESULT: WATER BENDER </p>
