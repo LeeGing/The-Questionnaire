@@ -86,16 +86,14 @@
           <option v-for="dropdown in dropdownset">
             {{dropdown.option}}</option>
         </select>
-        {{dropdownanswer}}
       </div>
       <div>
       2.
         <select v-model="dropdownanswer2">
-          <option disabled value="">Where do you want to work?</option>
+          <option disabled value="">Where do you work?</option>
           <option v-for="dropdown in dropdownset2">
             {{dropdown.option}}</option>
         </select>
-      {{dropdownanswer2}}
       </div>
       <div>
       3.
@@ -104,7 +102,6 @@
           <option v-for="dropdown in dropdownset3">
             {{dropdown.option}}</option>
         </select>
-      {{dropdownanswer3}}
       </div>
       <div>
       4.
@@ -113,18 +110,23 @@
           <option v-for="dropdown in dropdownset4">
             {{dropdown.option}}</option>
         </select>
-      {{dropdownanswer4}}
       </div>
       <div>
         5.
         <select v-model="dropdownanswer5">
-          <option disabled value="">Which store would you rather walk?</option>
+          <option disabled value="">Which store would you rather shop at?</option>
           <option v-for="dropdown in dropdownset5">
             {{dropdown.option}}</option>
         </select>
-      {{dropdownanswer5}}
         <div>
           <button v-on:click="DDFunc" class="ddbutton">Submit</button>
+        </div>
+        <div v-if='submit === "true"' class="border">
+          <p>{{dropdowncomment}}</p>
+          <p>{{dropdowncomment2}}</p>
+          <p>{{dropdowncomment3}}</p>
+          <p>{{dropdowncomment4}}</p>
+          <p>{{dropdowncomment5}}</p>
         </div>
       </div>
     </div>
@@ -158,6 +160,13 @@
         dropdownanswer3: '',
         dropdownanswer4: '',
         dropdownanswer5: '',
+        dropdowncomment: '',
+        dropdowncomment1: '',
+        dropdowncomment2: '',
+        dropdowncomment3: '',
+        dropdowncomment4: '',
+        dropdowncomment5: '',
+        submit: 'false',
         dropdownset: [
           {id: 1, option: 'Math'},
           {id: 2, option: 'Poetry'},
@@ -242,7 +251,57 @@
         }
       },
       DDFunc: function () {
-
+        this.submit = 'true'
+// Dropdown Question 1
+        if (this.dropdownanswer === 'Math') {
+          this.dropdowncomment = 'Math Club of Vancouver: 604-314-1596 - members@MCOV.com'
+        } else if (this.dropdownanswer === 'Poetry') {
+          this.dropdowncomment = 'Poetry District of Lower Mainland: 604-593-1023 - poetrydistrict@gmail.com'
+        } else if (this.dropdownanswer === 'Technology') {
+          this.dropdowncomment = 'Technology Club Van - 604-340-1337 - techvan@gmail.com '
+        } else if (this.dropdownanswer === 'Cooking') {
+          this.dropdowncomment = 'Lower Mainland Cooking Society - 604-203-4053 - cookingsocietylm@gmail.com'
+        }
+// Dropdown Question 2
+        if (this.dropdownanswer2 === 'Construction Site') {
+          this.dropdowncomment2 = 'Construction Club of Vancouver: 604-214-1396 - members@CCOV.com'
+        } else if (this.dropdownanswer2 === 'Nature') {
+          this.dropdowncomment2 = 'Nature District of Lower Mainland: 604-333-1323 - naturedistrict@gmail.com'
+        } else if (this.dropdownanswer2 === 'Office') {
+          this.dropdowncomment2 = 'Office Party Club Van - 604-240-1117 - officepartyvan@gmail.com '
+        } else if (this.dropdownanswer2 === 'Kitchen') {
+          this.dropdowncomment2 = 'Kitchen Design Society - 604-113-4044 - kdsocietylm@gmail.com'
+        }
+// Dropdown Question 3
+        if (this.dropdownanswer3 === 'Calculator') {
+          this.dropdowncomment3 = 'Calculator Speed Community of Vancouver: 604-231-1521 - members@CSCV.com'
+        } else if (this.dropdownanswer3 === 'Pen') {
+          this.dropdowncomment3 = 'Pen Collectors of Lower Mainland: 604-630-1003 - poetrydistrict@gmail.com'
+        } else if (this.dropdownanswer3 === 'Laptop') {
+          this.dropdowncomment3 = 'Computer Club YVR - 604-320-3201 - yvrcomps@gmail.com '
+        } else if (this.dropdownanswer3 === 'Spoon') {
+          this.dropdowncomment3 = 'Spoon Making Lower Mainland - 604-223-2223 - spoonmakers@gmail.com'
+        }
+// Dropdown Question 4
+        if (this.dropdownanswer4 === 'Puzzles') {
+          this.dropdowncomment4 = 'UBC Puzzle Club: 604-120-1221 - puzzles@UBC.com'
+        } else if (this.dropdownanswer4 === 'Charades') {
+          this.dropdowncomment4 = 'Boardgames Club of Lower Mainland: 604-620-1203 - boardgamesvan@hotmail.com'
+        } else if (this.dropdownanswer4 === 'World of Warcraft') {
+          this.dropdowncomment4 = 'UBC ESports Club - 604-230-3301 - ubcesports@UBC.com '
+        } else if (this.dropdownanswer3 === 'Cooking Mama') {
+          this.dropdowncomment4 = 'Cooking Fun Land - 604-102-COOK - cookingfunland@gmail.com'
+        }
+// Dropdown Question 5
+        if (this.dropdownanswer5 === 'Staples') {
+          this.dropdowncomment5 = 'Office Movie Nights - 604-221-1013 - officemovies@staples.com'
+        } else if (this.dropdownanswer5 === 'Michaels') {
+          this.dropdowncomment5 = 'Art Network of Vancouver: 604-770-1003 - artnetworkvan@gmail.com'
+        } else if (this.dropdownanswer5 === 'NCIX') {
+          this.dropdowncomment5 = 'Programming Club Van - 604-333-3101 - vanprogclub@gmail.com '
+        } else if (this.dropdownanswer5 === 'Whole Foods') {
+          this.dropdowncomment5 = 'Organic Jam Club - 604-223-JAMS - jamclub@jams.com'
+        }
       }
     }
   }
@@ -250,8 +309,8 @@
 
 <style>
   body {
-      background-image: url("https://i.pinimg.com/originals/05/c8/2e/05c82ee619eb200c68e0789eb583ac73.png");
-          background-size: 110%;
+    background-image: url("https://i.pinimg.com/originals/05/c8/2e/05c82ee619eb200c68e0789eb583ac73.png");
+    background-size: 110%;
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -270,6 +329,34 @@
 
   button {
     float:top;
+    margin-left:100px;
+    margin-right:100px;
+  }
+
+  p{
+    color:;
+    font-weight:bolder;
+  }
+
+  .border {
+    border: 1px solid #fff;
+    border: 1px solid #fff;
+    background-color: rgba(255,255,255,.8);
+    padding: 5px;
+    margin-left:15em;
+    margin-right:15em;
+    font-weight:bolder;
+    font-size:20px;
+
+  }
+  select {
+    height:3em;
+    width: 40em;
+    font-size:15px;
+    border: 1px solid #fff;
+    border: 1px solid #fff;
+    background-color: rgba(255,255,255,.8);
+    padding: 5px;
   }
 </style>
  
