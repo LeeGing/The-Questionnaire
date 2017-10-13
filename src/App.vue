@@ -67,7 +67,9 @@
         <button v-on:click="CFunc">Wind</button>
         <button v-on:click="DFunc">Rock</button>
       </div>
-      <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
+      <div>
+        <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
+      </div>
 <!-- Multiple Choice Comments -->
       <p v-if="AWin === 1" class="comment"> RESULT: FIRE BENDER </p>
       <p v-if="BWin === 1" class="comment"> RESULT: WATER BENDER </p>
@@ -121,7 +123,9 @@
             {{dropdown.option}}</option>
         </select>
       {{dropdownanswer5}}
-      <button v-on:click="DDFunc" class="ddbutton">Submit</button>
+        <div>
+          <button v-on:click="DDFunc" class="ddbutton">Submit</button>
+        </div>
       </div>
     </div>
 
