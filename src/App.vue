@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1> ℒife-𝐴nswers.org</h1>  
+    <h1 class="greenfont"> Daily Question </h1>
 
 <!-- Question Buttons -->
     <button v-on:click='tfquestions'>True/False Questions</button>
@@ -8,14 +8,16 @@
     <button v-on:click='ddquestions'>Dropdown Questions</button>
 <!-- True/False Question Set -->
     <div v-if="tfnumber % 2 === 0" class="questionset">
-      <img src="http://static.tvtropes.org/pmwiki/pub/images/lumberjack_5919.jpg" height="250px">
-      <div class='border'>
+      <h2 class="greenfont"> Lumberjack Career Questions </h2>
+      <p class="greenfont"> So you want to be a lumberjack? </h2>
+
+      <div class='greenfont'>
         <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
         <p v-if="questionnumber === 1">Question 1: Do you like being outdoors.</p>
         <p v-if="questionnumber === 2">Question 2: Do you like to swing axes at trees? </p>
         <p v-if="questionnumber === 3">Question 3: Do you think you can fight a bear? </p>
         <p v-if="questionnumber === 4">Question 4: Do you make your own sandwiches? </p>
-        <p v-if="questionnumber === 5">Question 5: Are you a big beared white sir? </p>
+        <p v-if="questionnumber === 5">Question 5: Are you an atheletic person? </p>
 
 <!-- True/False Answers -->
         <button v-if="questionnumber <= 5"v-on:click="add">Yes</button>
@@ -28,97 +30,100 @@
         <p v-if="displaynumber === 2" class="comment"> We may be on to something. </p>
         <p v-if="displaynumber === 1" class="comment"> We may be on to something. </p>
         <p v-if="displaynumber < 0" class="comment"> You probably don't want to be a lumberjack.</p>
+        <div v-if="questionnumber === 6">
+          <p>Advertisement</p>
+          <p v-if="displaynumber >= 2" >Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack</p>
+          <p v-if="displaynumber < 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
+       </div>
       </div>
     </div>
 
 <!-- Multiple Choice Question Set -->
     <div v-if="mcnumber % 2 === 0" class="questionset">
-      <img src="https://i.pinimg.com/originals/48/3a/b0/483ab0cec0963d9f13e7675febb9e873.jpg" height="200px">
-      <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
-      <div v-if="questionnumber === 1">
-        <p>Question 1: Which element are you most comfortable with?</p>
-        <button v-on:click="AFunc">Fire</button>
-        <button v-on:click="BFunc">Water</button>
-        <button v-on:click="CFunc">Air</button>
-        <button v-on:click="DFunc">Earth</button>
-      </div>
-      <div v-if="questionnumber === 2">
-        <p>Question 2: What is your favorite color? </p>
-        <button v-on:click="AFunc">Red</button>
-        <button v-on:click="BFunc">Blue</button>
-        <button v-on:click="CFunc">Gray</button>
-        <button v-on:click="DFunc">Brown</button>
-      </div>
-      <div v-if="questionnumber === 3">
-        <p>Question 3: What is your favorite flavour?</p>
-        <button v-on:click="AFunc">Spicy</button>
-        <button v-on:click="BFunc">Dull</button>
-        <button v-on:click="CFunc">Light</button>
-        <button v-on:click="DFunc">Rich</button>
-      </div>
-      <div v-if="questionnumber === 4">
-        <p>Question 4: Where are you from? </p>
-        <button v-on:click="AFunc">America</button>
-        <button v-on:click="BFunc">Artic</button>
-        <button v-on:click="CFunc">Gray</button>
-        <button v-on:click="DFunc">China</button>
-      </div>
-      <div v-if="questionnumber === 5">
-        <p>Question 5: What power do you prefer?</p>
-        <button v-on:click="AFunc">Fire</button>
-        <button v-on:click="BFunc">Heal</button>
-        <button v-on:click="CFunc">Wind</button>
-        <button v-on:click="DFunc">Rock</button>
-      </div>
-      <div>
-        <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
-      </div>
+      <h2 class="greenfont"> EVENT! </h2>
+      <p class="greenfont"> Figure out where to go for today! </p>
+      <div class="greenfont">
+        <div v-if="questionnumber === 1">
+          <p>Question 1: How is the weather? </p>
+          <button v-on:click="AFunc">Sunny</button>
+          <button v-on:click="BFunc">Cloudy</button>
+          <button v-on:click="CFunc">Windy</button>
+          <button v-on:click="DFunc">Wet</button>
+        </div>
+        <div v-if="questionnumber === 2">
+          <p>Question 2: What do you want to see? </p>
+          <button v-on:click="AFunc">Nature</button>
+          <button v-on:click="BFunc">Science Experiments</button>
+          <button v-on:click="CFunc">Movie</button>
+          <button v-on:click="DFunc">Animals</button>
+        </div>
+        <div v-if="questionnumber === 3">
+          <p>Question 3: What is the temperature? </p>
+          <button v-on:click="AFunc">Hot</button>
+          <button v-on:click="BFunc">Cold</button>
+          <button v-on:click="CFunc">Warm</button>
+          <button v-on:click="DFunc">Gross</button>
+        </div>
+        <div v-if="questionnumber === 4">
+          <p>Question 4: What kind of trip?</p>
+          <button v-on:click="AFunc">Any</button>
+          <button v-on:click="BFunc">Mostly Adults</button>
+          <button v-on:click="CFunc">Mostly Kids</button>
+          <button v-on:click="DFunc">Date</button>
+        </div>
+        <div v-if="questionnumber === 5">
+          <p>Question 5: What do you want to eat? </p>
+          <button v-on:click="AFunc">Picnic</button>
+          <button v-on:click="BFunc">Burgers</button>
+          <button v-on:click="CFunc">Popcorn</button>
+          <button v-on:click="DFunc">Hot Dogs</button>
+        </div>
+        <div>
+          <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
+        </div>
 <!-- Multiple Choice Comments -->
-      <p v-if="AWin === 1" class="comment"> RESULT: FIRE BENDER </p>
-      <p v-if="BWin === 1" class="comment"> RESULT: WATER BENDER </p>
-      <p v-if="CWin === 1" class="comment"> RESULT: AIR BENDER</p>
-      <p v-if="DWin === 1" class="comment"> RESULT: EARTH BENDER </p>
+      <p v-if="AWin === 1" class="comment"> RESULT: Stanley Park <br/> Stanley Park - Stanley Park, Vancouver, BC V6G 1Z4</p>
+      <p v-if="BWin === 1" class="comment"> RESULT: Science World - 1455 Quebec St, Vancouver, BC V6A 3Z7</p>
+      <p v-if="CWin === 1" class="comment"> RESULT: IMAX Theater - 1455 Quebec St, Vancouver, BC V6A 3Z7</p>
+      <p v-if="DWin === 1" class="comment"> RESULT: Aquarium - 845 Avison Way, Vancouver, BC V6G 3E2</p>
     </div>
+      </div>
 
 <!-- Dropdown Question Set -->
     <div v-if="ddnumber % 2 === 0" class="questionset">
-      <h2 class="greenfont"> Connect with others with similar interests! </h2>
+      <h2 class="greenfont"> CONNECT!</h2>
+      <p class="greenfont"> Connect with locals with similar interests!</p>
       <div>
-      1.
         <select v-model="dropdownanswer">
-          <option disabled value="">What do you enjoy most?</option>
+          <option disabled value="">1. What do you enjoy most?</option>
           <option v-for="dropdown in dropdownset" :value="dropdown.id">
             {{dropdown.option}}</option>
         </select>
       </div>
       <div>
-      2.
         <select v-if="dropdownanswer !== ''" v-model="dropdownanswer2">
-          <option disabled value="">Where do you work?</option>
+          <option disabled value="">2. Where do you work?</option>
           <option v-for="dropdown in dropdownset2" :value="dropdown.id">
             {{dropdown.option}}</option>
         </select>
       </div>
       <div>
-      3.
         <select v-if="dropdownanswer2 !== ''" v-model="dropdownanswer3">
-          <option disabled value="">What is your tool of choice?</option>
+          <option disabled value="">3. What is your tool of choice?</option>
           <option v-for="dropdown in dropdownset3" :value="dropdown.id">
             {{dropdown.option}}</option>
         </select>
       </div>
       <div>
-      4.
         <select v-if="dropdownanswer3 !== ''" v-model="dropdownanswer4">
-          <option disabled value="">Which game would you rather play? </option>
+          <option disabled value="">4. Which game would you rather play? </option>
           <option v-for="dropdown in dropdownset4" :value="dropdown.id">
             {{dropdown.option}}</option>
         </select>
       </div>
       <div>
-        5.
         <select v-if="dropdownanswer4 !== ''" v-model="dropdownanswer5">
-          <option disabled value="">Which store would you rather shop at?</option>
+          <option disabled value="">5. Which store would you rather shop at?</option>
           <option v-for="dropdown in dropdownset5" :value="dropdown.id">
             {{dropdown.option}}</option>
         </select>
@@ -268,7 +273,7 @@
           this.dropdowncomment = 'Math Club of Vancouver: 604-314-1596 - members@MCOV.com'
           this.ddopt1 += 1
         } else if (this.dropdownanswer === 2) {
-          this.dropdowncomment = 'Poetry District of Lower Mainland: 604-593-1023 - poetrydistrict@gmail.com'
+          this.dropdowncomment = 'Poetry District of Robson: 604-593-1023 - poetrydistrict@gmail.com'
           this.ddopt2 += 1
         } else if (this.dropdownanswer === 3) {
           this.dropdowncomment = 'Technology Club Van - 604-340-1337 - techvan@gmail.com '
@@ -296,7 +301,7 @@
           this.dropdowncomment3 = 'Calculator Speed Community of Vancouver: 604-231-1521 - members@CSCV.com'
           this.ddopt1 += 1
         } else if (this.dropdownanswer3 === 2) {
-          this.dropdowncomment3 = 'Pen Collectors of Lower Mainland: 604-630-1003 - poetrydistrict@gmail.com'
+          this.dropdowncomment3 = 'Pen Collectors of North Vancouver: 604-630-1003 - poetrydistrict@gmail.com'
           this.ddopt2 += 1
         } else if (this.dropdownanswer3 === 3) {
           this.dropdowncomment3 = 'Computer Club YVR - 604-320-3201 - yvrcomps@gmail.com '
@@ -310,7 +315,7 @@
           this.dropdowncomment4 = 'UBC Puzzle Club: 604-120-1221 - puzzles@UBC.com'
           this.ddopt1 += 1
         } else if (this.dropdownanswer4 === 2) {
-          this.dropdowncomment4 = 'Boardgames Club of Lower Mainland: 604-620-1203 - boardgamesvan@hotmail.com'
+          this.dropdowncomment4 = 'Boardgames Club of Burnaby: 604-620-1203 - boardgamesvan@hotmail.com'
           this.ddopt2 += 1
         } else if (this.dropdownanswer4 === 3) {
           this.dropdowncomment4 = 'UBC ESports Club - 604-230-3301 - ubcesports@UBC.com '
@@ -350,7 +355,7 @@
 <style>
   body {
     background-image: url("https://i.pinimg.com/originals/05/c8/2e/05c82ee619eb200c68e0789eb583ac73.png");
-    background-size: 110%;
+    background-size: 120%;
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -358,13 +363,18 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    margin-top: 30px;
   }
   .comment {
     color: red;
   }
   .questionset {
     margin-top: 10px;
+    margin-left:15em;
+    margin-right:15em;
+  }
+  h1 {
+    font-size:50px;
   }
 
   button {
@@ -382,19 +392,17 @@
   }
 
   p{
-    color:;
     font-weight:bolder;
   }
 
   .border {
     border: 1px solid #fff;
     background-color: rgba(255,255,255,.8);
-    padding: 5px;
-    margin-left:15em;
-    margin-right:15em;
+    padding: 5px;    
+    margin-left:19rem;
+    margin-right:19em;
     font-weight:bolder;
     font-size:16px;
-
   }
   select {
     height:3em;
@@ -409,13 +417,13 @@
     color:red;
   }
   .greenfont {
-    color: #4CAF50;
+    color: #006400;
     font-weight:bolder;
-    background-color:rgba(255,255,255,.9);
-    margin-left: 18em;
-    margin-right: 18em;
+    background-color:rgba(255,255,255,.8);
+    margin-left: 300px;
+    margin-right: 300px;
     padding-top: 5px;
-    padding-bottom: 5px;
+    margin-top:0px;
   }
 </style>
  
