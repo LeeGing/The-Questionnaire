@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <div class="questionset">
-     <h1 class="mainborder"> The Weekly Questions </h1>
-   </div>
-
+      <h1 class="mainborder"> The Weekly Questions </h1>
+    </div>
 <!-- Question Buttons -->
     <div class="questionbuttons">
       <button v-on:click='tfquestions'>True/False Questions</button>
@@ -11,38 +10,35 @@
       <button v-on:click='ddquestions'>Dropdown Questions</button>
     </div>
 <!-- True/False Question Set -->
-    <div v-if="tfnumber % 2 === 0" class="questionset">
-      <h2 class="mainborder"> Lumberjack Career Questions </h2>
-      <p class="mainborder"> So you want to be a lumberjack? </h2>
-
-      <div class='mainborder'>
-        <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
-        <p v-if="questionnumber === 1">Question 1: Do you like being outdoors.</p>
-        <p v-if="questionnumber === 2">Question 2: Do you like to swing axes at trees? </p>
-        <p v-if="questionnumber === 3">Question 3: Do you think you can fight a bear? </p>
-        <p v-if="questionnumber === 4">Question 4: Do you make your own sandwiches? </p>
-        <p v-if="questionnumber === 5">Question 5: Are you an atheletic person? </p>
-
+      <div v-if="tfnumber % 2 === 0" class="questionset">
+        <h2 class="mainborder"> Lumberjack Career Questions </h2>
+        <p class="mainborder"> So you want to be a lumberjack? </p>
+        <div class='mainborder'>
+          <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
+          <p v-if="questionnumber === 1">Question 1: Do you like being outdoors.</p>
+          <p v-if="questionnumber === 2">Question 2: Do you like to swing axes at trees? </p>
+          <p v-if="questionnumber === 3">Question 3: Do you think you can fight a bear? </p>
+          <p v-if="questionnumber === 4">Question 4: Do you make your own sandwiches? </p>
+          <p v-if="questionnumber === 5">Question 5: Are you an atheletic person? </p>
 <!-- True/False Answers -->
-        <button v-if="questionnumber <= 5"v-on:click="add">Yes</button>
-        <button v-if="questionnumber <= 5"v-on:click="sub">No</button>
+          <button v-if="questionnumber <= 5"v-on:click="add">Yes</button>
+          <button v-if="questionnumber <= 5"v-on:click="sub">No</button>
 <!-- True/False Comments -->
-<div class="paddingbottom">
-        <p v-if="displaynumber === 5" class="comment"> Sounds like you're going to love working as a lumberjack! </p>
-        <p v-if="displaynumber === 4" class="comment"> You may enjoy lumberjacking. </p>
-        <p v-if="displaynumber === 3" class="comment"> You may enjoy lumberjacking. </p>
-        <p v-if="displaynumber === 2" class="comment"> We may be on to something. </p>
-        <p v-if="displaynumber === 1" class="comment"> We may be on to something. </p>
-        <p v-if="displaynumber < 0" class="comment"> You probably don't want to be a lumberjack.</p>
-        <div v-if="questionnumber === 6">
-          <p>Advertisement</p>
-          <p v-if="displaynumber >= 2" >Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack</p>
-          <p v-if="displaynumber < 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
+          <div class="paddingbottom">
+            <p v-if="displaynumber === 5" class="comment"> Sounds like you're going to love working as a lumberjack! </p>
+            <p v-if="displaynumber === 4" class="comment"> You may enjoy lumberjacking. </p>
+            <p v-if="displaynumber === 3" class="comment"> You may enjoy lumberjacking. </p>
+            <p v-if="displaynumber === 2" class="comment"> We may be on to something. </p>
+            <p v-if="displaynumber === 1" class="comment"> We may be on to something. </p>
+            <p v-if="displaynumber < 0" class="comment"> You probably don't want to be a lumberjack.</p>
+            <div v-if="questionnumber === 6">
+              <h3>Recommendation</h3>
+              <p v-if="displaynumber >= 2" >Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack</p>
+              <p v-if="displaynumber < 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
+            </div>
+          </div>
         </div>
-       </div>
       </div>
-    </div>
-
 <!-- Multiple Choice Question Set -->
     <div v-if="mcnumber % 2 === 0" class="questionset">
       <h2 class="mainborder"> EVENT! </h2>
@@ -83,74 +79,76 @@
           <button v-on:click="CFunc">Popcorn</button>
           <button v-on:click="DFunc">Hot Dogs</button>
         </div>
-        <div>
+        <div v-if="submit !== 'true'">
           <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
         </div>
 <!-- Multiple Choice Comments -->
-<div class='paddingbottom'>
-      <p v-if="AWin === 1" class="comment"> RESULT: Stanley Park <br/> Stanley Park - Stanley Park, Vancouver, BC V6G 1Z4</p>
-      <p v-if="BWin === 1" class="comment"> RESULT: Science World - 1455 Quebec St, Vancouver, BC V6A 3Z7</p>
-      <p v-if="CWin === 1" class="comment"> RESULT: IMAX Theater - 1455 Quebec St, Vancouver, BC V6A 3Z7</p>
-      <p v-if="DWin === 1" class="comment"> RESULT: Aquarium - 845 Avison Way, Vancouver, BC V6G 3E2</p>
-    </div>
-    </div>
+        <div v-if="submit === 'true'" class='paddingbottom'>
+          <h3> Recommendation: </h3>
+          <p v-if="AWin === 1" class="comment"> Stanley Park <br/> Stanley Park, Vancouver, BC V6G 1Z4 <br/> 604-403-2101 <br/> www.stanleypark.ca</p>
+          <p v-if="BWin === 1" class="comment"> Science World <br/> 1455 Quebec St, Vancouver, BC V6A 3Z7 <br/> 604-435-5232 <br/> www.scienceworld.ca</p>
+          <p v-if="CWin === 1" class="comment"> IMAX Theater <br/> 1455 Quebec St, Vancouver, BC V6A 3Z7 <br/> 604-506-4320 <br/> www.imax.ca</p>
+          <p v-if="DWin === 1" class="comment"> Aquarium <br/> 845 Avison Way, Vancouver, BC V6G 3E2 <br/> 604-520-2340 <br/> www.vancouveraquarium.ca</p>
+        </div>
       </div>
-
+    </div>
 <!-- Dropdown Question Set -->
     <div v-if="ddnumber % 2 === 0" class="questionset">
       <h2 class="mainborder"> CONNECT!</h2>
       <p class="mainborder"> Connect with locals with similar interests!</p>
-        <div v-if='submit === "true"' class="dropdowncomments">
-          <h2>Communities/Activites</h2>
-          <p>{{dropdowncomment}}</p>
-          <p>{{dropdowncomment2}}</p>
-          <p>{{dropdowncomment3}}</p>
-          <p>{{dropdowncomment4}}</p>
-          <p>{{dropdowncomment5}}</p>
-          <h2> Sponsors </h2>
-          <p class='redfont'>{{totalcomment}}</p>
-        </div>
-      <div>
-        <select v-model="dropdownanswer">
-          <option disabled value="">1. What do you enjoy most?</option>
-          <option v-for="dropdown in dropdownset" :value="dropdown.id">
-            {{dropdown.option}}</option>
-        </select>
-      </div>
-      <div>
-        <select v-if="dropdownanswer !== ''" v-model="dropdownanswer2">
-          <option disabled value="">2. Where do you work?</option>
-          <option v-for="dropdown in dropdownset2" :value="dropdown.id">
-            {{dropdown.option}}</option>
-        </select>
-      </div>
-      <div>
-        <select v-if="dropdownanswer2 !== ''" v-model="dropdownanswer3">
-          <option disabled value="">3. What is your tool of choice?</option>
-          <option v-for="dropdown in dropdownset3" :value="dropdown.id">
-            {{dropdown.option}}</option>
-        </select>
-      </div>
-      <div>
-        <select v-if="dropdownanswer3 !== ''" v-model="dropdownanswer4">
-          <option disabled value="">4. Which game would you rather play? </option>
-          <option v-for="dropdown in dropdownset4" :value="dropdown.id">
-            {{dropdown.option}}</option>
-        </select>
-      </div>
-      <div>
-        <select v-if="dropdownanswer4 !== ''" v-model="dropdownanswer5">
-          <option disabled value="">5. Which store would you rather shop at?</option>
-          <option v-for="dropdown in dropdownset5" :value="dropdown.id">
-            {{dropdown.option}}</option>
-        </select>
+<!-- Dropdown Questions -->
+      <div v-if="submit !== 'true'">
         <div>
-          <button v-if="dropdownanswer5 !== ''" v-on:click="DDFunc" class="ddbutton">Submit</button>
+          <select v-model="dropdownanswer">
+            <option disabled value="">1. What do you enjoy most?</option>
+            <option v-for="dropdown in dropdownset" :value="dropdown.id">
+              {{dropdown.option}}</option>
+          </select>
         </div>
+        <div>
+          <select v-if="dropdownanswer !== ''" v-model="dropdownanswer2">
+            <option disabled value="">2. Where do you work?</option>
+            <option v-for="dropdown in dropdownset2" :value="dropdown.id">
+              {{dropdown.option}}</option>
+          </select>
+        </div>
+        <div>
+          <select v-if="dropdownanswer2 !== ''" v-model="dropdownanswer3">
+            <option disabled value="">3. What is your tool of choice?</option>
+            <option v-for="dropdown in dropdownset3" :value="dropdown.id">
+              {{dropdown.option}}</option>
+          </select>
+        </div>
+        <div>
+          <select v-if="dropdownanswer3 !== ''" v-model="dropdownanswer4">
+            <option disabled value="">4. Which game would you rather play? </option>
+            <option v-for="dropdown in dropdownset4" :value="dropdown.id">
+              {{dropdown.option}}</option>
+          </select>
+        </div>
+        <div>
+          <select v-if="dropdownanswer4 !== ''" v-model="dropdownanswer5">
+            <option disabled value="">5. Which store would you rather shop at?</option>
+            <option v-for="dropdown in dropdownset5" :value="dropdown.id">
+              {{dropdown.option}}</option>
+          </select>
+        </div>
+      </div>
+<!-- Dropdown Comments -->
+      <div v-if='submit === "true"' class="dropdowncomments">
+        <h3>Communities/Activites</h3>
+        <p>{{dropdowncomment}}</p>
+        <p>{{dropdowncomment2}}</p>
+        <p>{{dropdowncomment3}}</p>
+        <p>{{dropdowncomment4}}</p>
+        <p>{{dropdowncomment5}}</p>
+        <h3> Sponsors </h3>
+        <p class='redfont'>{{totalcomment}}</p>
+      </div>
+      <div v-if="submit !== 'true'">
+        <button v-if="dropdownanswer5 !== ''" v-on:click="DDFunc" class="ddbutton">Submit</button>
       </div>
     </div>
-
-<!-- End of Div -->
   </div>
 </template>
 
@@ -236,16 +234,49 @@
         this.tfnumber += 1
         this.mcnumber = 1
         this.ddnumber = 1
+        this.displaynumber = 0
+        this.questionnumber = 1
+        this.AOpt = 0
+        this.BOpt = 0
+        this.COpt = 0
+        this.DOpt = 0
+        this.AWin = 0
+        this.BWin = 0
+        this.CWin = 0
+        this.DWin = 0
+        this.submit = 'false'
       },
       mcquestions: function () {
         this.mcnumber += 1
         this.tfnumber = 1
         this.ddnumber = 1
+        this.displaynumber = 0
+        this.questionnumber = 1
+        this.AOpt = 0
+        this.BOpt = 0
+        this.COpt = 0
+        this.DOpt = 0
+        this.AWin = 0
+        this.BWin = 0
+        this.CWin = 0
+        this.DWin = 0
+        this.submit = 'false'
       },
       ddquestions: function () {
         this.ddnumber += 1
         this.tfnumber = 1
         this.mcnumber = 1
+        this.displaynumber = 0
+        this.questionnumber = 1
+        this.AOpt = 0
+        this.BOpt = 0
+        this.COpt = 0
+        this.DOpt = 0
+        this.AWin = 0
+        this.BWin = 0
+        this.CWin = 0
+        this.DWin = 0
+        this.submit = 'false'
       },
       AFunc: function () {
         this.AOpt += 1
@@ -264,15 +295,16 @@
         this.questionnumber += 1
       },
       SFunc: function () {
-        if (this.AOpt > this.BOpt && this.AOpt > this.COpt && this.AOpt > this.DOpt) {
+        if (this.AOpt >= this.BOpt && this.AOpt >= this.COpt && this.AOpt >= this.DOpt) {
           this.AWin += 1
-        } else if (this.BOpt > this.AOpt && this.BOpt > this.COpt && this.BOpt > this.DOpt) {
+        } else if (this.BOpt >= this.AOpt && this.BOpt >= this.COpt && this.BOpt >= this.DOpt) {
           this.BWin += 1
-        } else if (this.COpt > this.AOpt && this.COpt > this.BOpt && this.COpt > this.DOpt) {
+        } else if (this.COpt >= this.AOpt && this.COpt >= this.BOpt && this.COpt >= this.DOpt) {
           this.CWin += 1
-        } else if (this.DOpt > this.AOpt && this.DOpt > this.BOpt && this.DOpt > this.COpt) {
+        } else if (this.DOpt >= this.AOpt && this.DOpt >= this.BOpt && this.DOpt >= this.COpt) {
           this.DWin += 1
         }
+        this.submit = 'true'
       },
       DDFunc: function () {
         this.submit = 'true'
@@ -347,13 +379,13 @@
           this.ddopt4 += 1
         }
 // Dropdown Recommendations
-        if (this.ddopt1 > this.ddopt2 && this.ddopt1 > this.ddopt3 && this.ddopt1 > this.ddopt4) {
+        if (this.ddopt1 >= this.ddopt2 && this.ddopt1 >= this.ddopt3 && this.ddopt1 >= this.ddopt4) {
           this.totalcomment = 'Business University - 778-367-8094 - bus@vueuniveristy.com - www.businessuniveristy.com'
-        } else if (this.ddopt2 > this.ddopt1 && this.ddopt2 > this.ddopt3 && this.ddopt2 > this.ddopt4) {
+        } else if (this.ddopt2 >= this.ddopt1 && this.ddopt2 >= this.ddopt3 && this.ddopt2 >= this.ddopt4) {
           this.totalcomment = 'Vancouver Art Gallery School - 604-303-3041 - students@vags.com - www.vancouverartschool.com'
-        } else if (this.ddopt3 > this.ddopt1 && this.ddopt3 > this.ddopt2 && this.ddopt3 > this.ddopt4) {
+        } else if (this.ddopt3 >= this.ddopt1 && this.ddopt3 >= this.ddopt2 && this.ddopt3 >= this.ddopt4) {
           this.totalcomment = 'Lighthouse Labs - 604-230-2954 - students@lighthouselabs.com - www.lighthouselabs.com'
-        } else if (this.ddopt4 > this.ddopt1 && this.ddopt4 > this.ddopt2 && this.ddopt4 > this.ddopt3) {
+        } else if (this.ddopt4 >= this.ddopt1 && this.ddopt4 >= this.ddopt2 && this.ddopt4 >= this.ddopt3) {
           this.totalcomment = 'Northwest Culinary Academy - 604-876-7653 - www.northwestculnary.ca'
         }
       }
@@ -363,11 +395,12 @@
 
 <style>
   body {
-    background-image: url("https://i.pinimg.com/originals/05/c8/2e/05c82ee619eb200c68e0789eb583ac73.png");
-    background-size: 120%;
-   min-width:1000px; /* suppose you want minimun width of 1000px */
-   width: auto !important;  /* Firefox will set width as auto */
-   width:1000px;             /* As IE ignores !important it will set width as 1000px; */
+  background-image: url("https://i.pinimg.com/originals/05/c8/2e/05c82ee619eb200c68e0789eb583ac73.png");
+  background-size:110%;
+  min-width:1200px; 
+  width: auto !important;  
+  width:1200px; 
+  background-position: top; /* Position the image to the top cente */            
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -381,18 +414,19 @@
     color: red;
   }
   .questionset {
-    margin-top: 10px;
-    margin-left:15em;
-    margin-right:15em;
+    margin-top:10px;
+    margin-left:180px;
+    margin-right:180px;
+    padding-left:20px;
+    padding-right:20px;
   }
   h1 {
     font-size:50px;
     margin-bottom:10px;
   }
-
   button {
     float:top;
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     margin-top: 15px;
@@ -403,12 +437,10 @@
     display: inline-block;
     font-size: 16px;
   }
-
   p{
     font-weight:bolder;
     font-size:15px;
   }
-
   .dropdowncomments {
     border: 1px solid #fff;
     background-color: rgba(255,255,255,.8);
@@ -423,7 +455,7 @@
   select {
     margin-bottom: 1em;
     height:3em;
-    width: 45em;
+    width: 400px;
     font-size:14px;
     border: 1px solid #fff;
     border: 1px solid #fff;
