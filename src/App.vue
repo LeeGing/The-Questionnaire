@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <h1 class="greenfont"> Daily Question </h1>
+    <div class="questionset">
+     <h1 class="mainborder"> The Weekly Questions </h1>
+   </div>
 
 <!-- Question Buttons -->
-    <button v-on:click='tfquestions'>True/False Questions</button>
-    <button v-on:click='mcquestions'>Multiple Choice Questions</button>
-    <button v-on:click='ddquestions'>Dropdown Questions</button>
+    <div class="questionbuttons">
+      <button v-on:click='tfquestions'>True/False Questions</button>
+      <button v-on:click='mcquestions'>Multiple Choice Questions</button>
+      <button v-on:click='ddquestions'>Dropdown Questions</button>
+    </div>
 <!-- True/False Question Set -->
     <div v-if="tfnumber % 2 === 0" class="questionset">
-      <h2 class="greenfont"> Lumberjack Career Questions </h2>
-      <p class="greenfont"> So you want to be a lumberjack? </h2>
+      <h2 class="mainborder"> Lumberjack Career Questions </h2>
+      <p class="mainborder"> So you want to be a lumberjack? </h2>
 
-      <div class='greenfont'>
+      <div class='mainborder'>
         <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
         <p v-if="questionnumber === 1">Question 1: Do you like being outdoors.</p>
         <p v-if="questionnumber === 2">Question 2: Do you like to swing axes at trees? </p>
@@ -23,7 +27,7 @@
         <button v-if="questionnumber <= 5"v-on:click="add">Yes</button>
         <button v-if="questionnumber <= 5"v-on:click="sub">No</button>
 <!-- True/False Comments -->
-
+<div class="paddingbottom">
         <p v-if="displaynumber === 5" class="comment"> Sounds like you're going to love working as a lumberjack! </p>
         <p v-if="displaynumber === 4" class="comment"> You may enjoy lumberjacking. </p>
         <p v-if="displaynumber === 3" class="comment"> You may enjoy lumberjacking. </p>
@@ -34,15 +38,16 @@
           <p>Advertisement</p>
           <p v-if="displaynumber >= 2" >Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack</p>
           <p v-if="displaynumber < 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
+        </div>
        </div>
       </div>
     </div>
 
 <!-- Multiple Choice Question Set -->
     <div v-if="mcnumber % 2 === 0" class="questionset">
-      <h2 class="greenfont"> EVENT! </h2>
-      <p class="greenfont"> Figure out where to go for today! </p>
-      <div class="greenfont">
+      <h2 class="mainborder"> EVENT! </h2>
+      <p class="mainborder"> Figure out where to go for today! </p>
+      <div class="mainborder">
         <div v-if="questionnumber === 1">
           <p>Question 1: How is the weather? </p>
           <button v-on:click="AFunc">Sunny</button>
@@ -82,17 +87,29 @@
           <button v-if="questionnumber === 6" v-on:click="SFunc">Submit</button>
         </div>
 <!-- Multiple Choice Comments -->
+<div class='paddingbottom'>
       <p v-if="AWin === 1" class="comment"> RESULT: Stanley Park <br/> Stanley Park - Stanley Park, Vancouver, BC V6G 1Z4</p>
       <p v-if="BWin === 1" class="comment"> RESULT: Science World - 1455 Quebec St, Vancouver, BC V6A 3Z7</p>
       <p v-if="CWin === 1" class="comment"> RESULT: IMAX Theater - 1455 Quebec St, Vancouver, BC V6A 3Z7</p>
       <p v-if="DWin === 1" class="comment"> RESULT: Aquarium - 845 Avison Way, Vancouver, BC V6G 3E2</p>
     </div>
+    </div>
       </div>
 
 <!-- Dropdown Question Set -->
     <div v-if="ddnumber % 2 === 0" class="questionset">
-      <h2 class="greenfont"> CONNECT!</h2>
-      <p class="greenfont"> Connect with locals with similar interests!</p>
+      <h2 class="mainborder"> CONNECT!</h2>
+      <p class="mainborder"> Connect with locals with similar interests!</p>
+        <div v-if='submit === "true"' class="dropdowncomments">
+          <h2>Communities/Activites</h2>
+          <p>{{dropdowncomment}}</p>
+          <p>{{dropdowncomment2}}</p>
+          <p>{{dropdowncomment3}}</p>
+          <p>{{dropdowncomment4}}</p>
+          <p>{{dropdowncomment5}}</p>
+          <h2> Sponsors </h2>
+          <p class='redfont'>{{totalcomment}}</p>
+        </div>
       <div>
         <select v-model="dropdownanswer">
           <option disabled value="">1. What do you enjoy most?</option>
@@ -129,15 +146,6 @@
         </select>
         <div>
           <button v-if="dropdownanswer5 !== ''" v-on:click="DDFunc" class="ddbutton">Submit</button>
-        </div>
-        <div v-if='submit === "true"' class="border">
-          <p>{{dropdowncomment}}</p>
-          <p>{{dropdowncomment2}}</p>
-          <p>{{dropdowncomment3}}</p>
-          <p>{{dropdowncomment4}}</p>
-          <p>{{dropdowncomment5}}</p>
-          <p> Advertisement </p>
-          <p class='redfont'>{{totalcomment}}</p>
         </div>
       </div>
     </div>
@@ -338,6 +346,7 @@
           this.dropdowncomment5 = 'Organic Jam Club - 604-223-JAMS - jamclub@jams.com'
           this.ddopt4 += 1
         }
+// Dropdown Recommendations
         if (this.ddopt1 > this.ddopt2 && this.ddopt1 > this.ddopt3 && this.ddopt1 > this.ddopt4) {
           this.totalcomment = 'Business University - 778-367-8094 - bus@vueuniveristy.com - www.businessuniveristy.com'
         } else if (this.ddopt2 > this.ddopt1 && this.ddopt2 > this.ddopt3 && this.ddopt2 > this.ddopt4) {
@@ -356,6 +365,9 @@
   body {
     background-image: url("https://i.pinimg.com/originals/05/c8/2e/05c82ee619eb200c68e0789eb583ac73.png");
     background-size: 120%;
+   min-width:1000px; /* suppose you want minimun width of 1000px */
+   width: auto !important;  /* Firefox will set width as auto */
+   width:1000px;             /* As IE ignores !important it will set width as 1000px; */
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -375,6 +387,7 @@
   }
   h1 {
     font-size:50px;
+    margin-bottom:10px;
   }
 
   button {
@@ -393,21 +406,25 @@
 
   p{
     font-weight:bolder;
+    font-size:15px;
   }
 
-  .border {
+  .dropdowncomments {
     border: 1px solid #fff;
     background-color: rgba(255,255,255,.8);
-    padding: 5px;    
-    margin-left:19rem;
-    margin-right:19em;
+    padding: 5px;
+    margin-top:1rem;
+    margin-left:13rem;
+    margin-right:13rem;
+    margin-bottom:3rem;
     font-weight:bolder;
     font-size:16px;
   }
   select {
+    margin-bottom: 1em;
     height:3em;
-    width: 40em;
-    font-size:13px;
+    width: 45em;
+    font-size:14px;
     border: 1px solid #fff;
     border: 1px solid #fff;
     background-color: rgba(255,255,255,.8);
@@ -416,14 +433,17 @@
   .redfont {
     color:red;
   }
-  .greenfont {
+  .mainborder {
     color: #006400;
     font-weight:bolder;
     background-color:rgba(255,255,255,.8);
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 205px;
+    margin-right: 205px;
     padding-top: 5px;
     margin-top:0px;
+  }
+  .paddingbottom{
+    padding-bottom:10px;
   }
 </style>
  
