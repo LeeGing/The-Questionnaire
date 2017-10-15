@@ -15,11 +15,11 @@
         <p class="mainborder"> So you want to be a lumberjack? </p>
         <div class='mainborder'>
           <p v-if="questionnumber < 6"> Question: {{questionnumber}} </p>
-          <p v-if="questionnumber === 1">Question 1: Do you like being outdoors.</p>
-          <p v-if="questionnumber === 2">Question 2: Do you like to swing axes at trees? </p>
-          <p v-if="questionnumber === 3">Question 3: Do you think you can fight a bear? </p>
-          <p v-if="questionnumber === 4">Question 4: Do you make your own sandwiches? </p>
-          <p v-if="questionnumber === 5">Question 5: Are you an atheletic person? </p>
+          <p v-if="questionnumber === 1"> Do you like being outdoors.</p>
+          <p v-if="questionnumber === 2"> Do you like to swing axes at trees? </p>
+          <p v-if="questionnumber === 3"> Do you think you can fight a bear? </p>
+          <p v-if="questionnumber === 4"> Do you make your own sandwiches? </p>
+          <p v-if="questionnumber === 5"> Are you an atheletic person? </p>
 <!-- True/False Answers -->
           <button v-if="questionnumber <= 5"v-on:click="add">Yes</button>
           <button v-if="questionnumber <= 5"v-on:click="sub">No</button>
@@ -34,7 +34,7 @@
             <div v-if="questionnumber === 6">
               <h3>Recommendation</h3>
               <p v-if="displaynumber >= 2" >Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack</p>
-              <p v-if="displaynumber < 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
+              <p v-if="displaynumber <= 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
             </div>
           </div>
         </div>
@@ -277,6 +277,7 @@
         this.CWin = 0
         this.DWin = 0
         this.submit = 'false'
+        this.totalcomment = ''
       },
       AFunc: function () {
         this.AOpt += 1
