@@ -22,7 +22,7 @@ The advertisements shown are dependent on the outcome.
 
 ## Pictures
 [3 Types of Questionnaires]
-<img src=http://gifmaker.me/files/download/home/20171016/13/u4T9WxTuqzukGIHzqxPa1B/output_a4uTej.gif>
+<img src="/documents/three.gif">
 
 [Multiple Choice Questions]
 <img src="http://gifmaker.me/files/download/home/20171016/13/07aL1HGEKqpa4tDKyAXBUV/output_M0l5TB.gif">
