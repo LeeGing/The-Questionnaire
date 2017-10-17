@@ -22,10 +22,10 @@ The advertisements shown are dependent on the outcome.
 
 ## Pictures
 [3 Types of Questionnaires]
-<img src="https://i.imgflip.com/1xqbrn.gif" title="made at imgflip.com"/></a>
+<img src=http://gifmaker.me/files/download/home/20171016/13/u4T9WxTuqzukGIHzqxPa1B/output_a4uTej.gif>
 
 [Multiple Choice Questions]
-<img src="https://i.imgflip.com/1xqbjk.gif" title="made at imgflip.com"/>
+<img src="http://gifmaker.me/files/download/home/20171016/13/07aL1HGEKqpa4tDKyAXBUV/output_M0l5TB.gif">
 
 [Dropdown Questions]
-<img src="https://i.imgflip.com/1xqb9p.gif"/>
+<img src="http://gifmaker.me/files/download/home/20171016/13/4CvZNwUKErEyQ6R0hAnrLX/output_DV8se9.gif"/>
