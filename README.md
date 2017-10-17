@@ -21,11 +21,11 @@ The advertisements shown are dependent on the outcome.
 3. Dropdown Menu Questionnaires
 
 ## Pictures
-[3 Types of Questionnaires]
+<p>[3 Types of Questionnaires]</p>
 <img src="/documents/three.gif">
 
-[Multiple Choice Questions]
+<p>[Multiple Choice Questions]</p>
 <img src="/documents/mc.gif">
 
-[Dropdown Questions]
+<p>[Dropdown Questions]</p>
 <img src="/documents/dd.gif"/>
