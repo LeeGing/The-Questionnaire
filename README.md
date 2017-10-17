@@ -29,3 +29,14 @@ The advertisements shown are dependent on the outcome.
 
 <p>[Dropdown Questions]</p>
 <img src="/documents/dd.gif"/>
+
+## Dependencies
+
+<p> -Vue JS </p>
+<p> -Vue-Router </p>
+
+## Set Up
+<p> npm installl - to install dependencies</p>
+<p> npm start - to start server </p>
+
+
