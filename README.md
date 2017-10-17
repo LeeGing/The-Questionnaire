@@ -1,4 +1,4 @@
-# The Weekly Questions
+# The Questionnaire
 
 ### A Vue.JS Project
 
@@ -25,7 +25,7 @@ The advertisements shown are dependent on the outcome.
 <img src="/documents/three.gif">
 
 [Multiple Choice Questions]
-<img src="http://gifmaker.me/files/download/home/20171016/13/07aL1HGEKqpa4tDKyAXBUV/output_M0l5TB.gif">
+<img src="/documents/mc.gif">
 
 [Dropdown Questions]
-<img src="http://gifmaker.me/files/download/home/20171016/13/4CvZNwUKErEyQ6R0hAnrLX/output_DV8se9.gif"/>
+<img src="/documents/dd.gif"/>
