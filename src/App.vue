@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="questionset">
-      <h1 class="mainborder"> The Weekly Questions </h1>
+      <h1 class="mainborder"> The Questionnaire</h1>
     </div>
 <!-- Question Buttons -->
     <div class="questionbuttons">
@@ -25,16 +25,22 @@
           <button v-if="questionnumber <= 5"v-on:click="sub">No</button>
 <!-- True/False Comments -->
           <div class="paddingbottom">
-            <p v-if="displaynumber === 5" class="comment"> Sounds like you're going to love working as a lumberjack! </p>
-            <p v-if="displaynumber === 4" class="comment"> You may enjoy lumberjacking. </p>
-            <p v-if="displaynumber === 3" class="comment"> You may enjoy lumberjacking. </p>
-            <p v-if="displaynumber === 2" class="comment"> We may be on to something. </p>
-            <p v-if="displaynumber === 1" class="comment"> We may be on to something. </p>
-            <p v-if="displaynumber < 0" class="comment"> You probably don't want to be a lumberjack.</p>
+            <p v-if="pointsnumberx === 5" class="comment"> Sounds like you're going to love working as a lumberjack! </p>
+            <p v-if="pointsnumberx === 4" class="comment"> You may enjoy lumberjacking. </p>
+            <p v-if="pointsnumberx === 3" class="comment"> You may enjoy lumberjacking. </p>
+            <p v-if="pointsnumberx === 2" class="comment"> We may be on to something. </p>
+            <p v-if="pointsnumberx === 1" class="comment"> We may be on to something. </p>
+            <p v-if="pointsnumberx < 0" class="comment"> You probably don't want to be a lumberjack.</p>
             <div v-if="questionnumber === 6">
-              <h3>Recommendation</h3>
-              <p v-if="displaynumber >= 2" >Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack</p>
-              <p v-if="displaynumber <= 1">Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</p>
+              <h2 class="greenfont">Recommendation</h2>
+              <div v-if="pointsnumberx >= 2">
+                <img src="https://www.northcountrypublicradio.org/news/images/woodsman1.jpg" height="200px">
+                <h3> Oaksville Lumberjack School - 604-434-WOOD - students@OLS.com - www.oaksvillelumberjack </h3>
+              </div>
+              <div v-if="pointsnumberx <= 1">
+                <img src="https://teenlife.s3.amazonaws.com/media/uploads/listings/id-gaming-academy-yale/CLmQsrGhNRel.jpg" height="200px">
+                <h3>Lighthouse Labs Programming School - 604-320-2931 - students@lighthouselabs.com - www.lighthouselabs.com</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -84,11 +90,23 @@
         </div>
 <!-- Multiple Choice Comments -->
         <div v-if="submit === 'true'" class='paddingbottom'>
-          <h3> Recommendation: </h3>
-          <p v-if="AWin === 1" class="comment"> Stanley Park <br/> Stanley Park, Vancouver, BC V6G 1Z4 <br/> 604-403-2101 <br/> www.stanleypark.ca</p>
-          <p v-if="BWin === 1" class="comment"> Science World <br/> 1455 Quebec St, Vancouver, BC V6A 3Z7 <br/> 604-435-5232 <br/> www.scienceworld.ca</p>
-          <p v-if="CWin === 1" class="comment"> IMAX Theater <br/> 1455 Quebec St, Vancouver, BC V6A 3Z7 <br/> 604-506-4320 <br/> www.imax.ca</p>
-          <p v-if="DWin === 1" class="comment"> Aquarium <br/> 845 Avison Way, Vancouver, BC V6G 3E2 <br/> 604-520-2340 <br/> www.vancouveraquarium.ca</p>
+          <h2 class="greenfont"> Recommendation: </h2>
+          <div v-if="AWin === 1">
+            <img src="https://vancouver-canada.ca/images/lionsgatebridge.jpg">
+            <p v-if="AWin === 1" class="comment"> Stanley Park <br/> Stanley Park, Vancouver, BC V6G 1Z4 <br/> 604-403-2101 <br/> www.stanleypark.ca</p>
+          </div>
+          <div v-if="BWin === 1">
+            <img src="https://vancouver-canada.ca/images/scienceworld.jpg">
+            <p class="comment"> Science World <br/> 1455 Quebec St, Vancouver, BC V6A 3Z7 <br/> 604-435-5232 <br/> www.scienceworld.ca</p>
+          </div>
+          <div v-if="CWin === 1">
+            <img src="https://assets-auto.rbl.ms/94f36b761053e043e9bfe7e9c7df7fe46e5f466939f3e0c2fd160f6819e8aa33">
+            <p v-if="CWin === 1" class="comment"> IMAX Theater <br/> 1455 Quebec St, Vancouver, BC V6A 3Z7 <br/> 604-506-4320 <br/> www.imax.ca</p>
+          </div>
+          <div v-if="DWin === 1">
+            <img src="http://wpmedia.vancouversun.com/2016/06/png-merlin-archive-nyac-an-exxon-valdez-oil-spill-survivo.jpeg?w=475&h=356&crop=1&quality=55&strip=all">
+            <p v-if="DWin === 1" class="comment"> Vancouver Aquarium <br/> 845 Avison Way, Vancouver, BC V6G 3E2 <br/> 604-520-2340 <br/> www.vancouveraquarium.ca</p>
+          </div>
         </div>
       </div>
     </div>
@@ -136,14 +154,14 @@
       </div>
 <!-- Dropdown Comments -->
       <div v-if='submit === "true"' class="dropdowncomments">
-        <h3>Communities/Activites</h3>
+        <h2 class="greenfont">Communities/Activites</h2>
         <p>{{dropdowncomment}}</p>
         <p>{{dropdowncomment2}}</p>
         <p>{{dropdowncomment3}}</p>
         <p>{{dropdowncomment4}}</p>
         <p>{{dropdowncomment5}}</p>
-        <h3> Sponsors </h3>
-        <p class='redfont'>{{totalcomment}}</p>
+        <h2 class="greenfont"> Sponsors </h2>
+        <p class='redfont'>{{sponsormessage}}</p>
       </div>
       <div v-if="submit !== 'true'">
         <button v-if="dropdownanswer5 !== ''" v-on:click="DDFunc" class="ddbutton">Submit</button>
@@ -158,7 +176,7 @@
     data () {
       return {
 // Shared Question Data
-        displaynumber: 0,
+        pointsnumberx: 0,
         questionnumber: 1,
         tfnumber: 1,
         mcnumber: 1,
@@ -183,7 +201,7 @@
         dropdowncomment3: '',
         dropdowncomment4: '',
         dropdowncomment5: '',
-        totalcomment: '',
+        sponsormessage: '',
         ddopt1: 0,
         ddopt2: 0,
         ddopt3: 0,
@@ -223,18 +241,18 @@
     },
     methods: {
       add: function () {
-        this.displaynumber += 1
+        this.pointsnumberx += 1
         this.questionnumber += 1
       },
       sub: function () {
-        this.displaynumber -= 1
+        this.pointsnumberx -= 1
         this.questionnumber += 1
       },
       tfquestions: function () {
         this.tfnumber += 1
         this.mcnumber = 1
         this.ddnumber = 1
-        this.displaynumber = 0
+        this.pointsnumberx = 0
         this.questionnumber = 1
         this.AOpt = 0
         this.BOpt = 0
@@ -250,7 +268,7 @@
         this.mcnumber += 1
         this.tfnumber = 1
         this.ddnumber = 1
-        this.displaynumber = 0
+        this.pointsnumberx = 0
         this.questionnumber = 1
         this.AOpt = 0
         this.BOpt = 0
@@ -266,7 +284,7 @@
         this.ddnumber += 1
         this.tfnumber = 1
         this.mcnumber = 1
-        this.displaynumber = 0
+        this.pointsnumberx = 0
         this.questionnumber = 1
         this.AOpt = 0
         this.BOpt = 0
@@ -277,7 +295,12 @@
         this.CWin = 0
         this.DWin = 0
         this.submit = 'false'
-        this.totalcomment = ''
+        this.sponsormessage = ''
+        this.dropdownanswer = ''
+        this.dropdownanswer2 = ''
+        this.dropdownanswer3 = ''
+        this.dropdownanswer4 = ''
+        this.dropdownanswer5 = ''
       },
       AFunc: function () {
         this.AOpt += 1
@@ -381,13 +404,13 @@
         }
 // Dropdown Recommendations
         if (this.ddopt1 >= this.ddopt2 && this.ddopt1 >= this.ddopt3 && this.ddopt1 >= this.ddopt4) {
-          this.totalcomment = 'Business University - 778-367-8094 - bus@vueuniveristy.com - www.businessuniveristy.com'
+          this.sponsormessage = 'Business University - 778-367-8094 - 1423 McKaw St, Vancouver, B.C. - bus@vueuniveristy.com - www.businessuniveristy.com'
         } else if (this.ddopt2 >= this.ddopt1 && this.ddopt2 >= this.ddopt3 && this.ddopt2 >= this.ddopt4) {
-          this.totalcomment = 'Vancouver Art Gallery School - 604-303-3041 - students@vags.com - www.vancouverartschool.com'
+          this.sponsormessage = 'Vancouver Art Gallery School - 604-303-3041 - 3728 Clark St, Vancouver, B.C. - students@vags.com - www.vancouverartschool.com'
         } else if (this.ddopt3 >= this.ddopt1 && this.ddopt3 >= this.ddopt2 && this.ddopt3 >= this.ddopt4) {
-          this.totalcomment = 'Lighthouse Labs - 604-230-2954 - students@lighthouselabs.com - www.lighthouselabs.com'
+          this.sponsormessage = 'Lighthouse Labs - 604-230-2954 - 2837 Union St, Vancouver, B.C. - students@lighthouselabs.com - www.lighthouselabs.com'
         } else if (this.ddopt4 >= this.ddopt1 && this.ddopt4 >= this.ddopt2 && this.ddopt4 >= this.ddopt3) {
-          this.totalcomment = 'Northwest Culinary Academy - 604-876-7653 - www.northwestculnary.ca'
+          this.sponsormessage = 'Northwest Culinary Academy - 604-876-7653 - 8932 Dunman St, Vancouver, B.C. - www.northwestculnary.ca'
         }
       }
     }
@@ -465,6 +488,9 @@
   }
   .redfont {
     color:red;
+  }
+  .greenfont {
+    color:#006400;
   }
   .mainborder {
     color: #006400;
