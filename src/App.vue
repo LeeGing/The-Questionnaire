@@ -162,6 +162,7 @@
         <p>{{dropdowncomment5}}</p>
         <h2 class="greenfont"> Sponsors </h2>
         <p class='redfont'>{{sponsormessage}}</p>
+        <img class="map" src="http://cdn.newsapi.com.au/image/v1/ab91c7bdff4b575b091f36f0c8c4a81c">
       </div>
       <div v-if="submit !== 'true'">
         <button v-if="dropdownanswer5 !== ''" v-on:click="DDFunc" class="ddbutton">Submit</button>
@@ -503,6 +504,10 @@
   }
   .paddingbottom{
     padding-bottom:10px;
+  }
+  .map {
+    margin-top:30px;
+    margin-bottom:30px;
   }
 </style>
  
