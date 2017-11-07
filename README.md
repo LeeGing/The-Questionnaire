@@ -2,11 +2,11 @@
 
 ### A Vue.JS Project
 
-The purpose of this project was to become familiar with Vue.JS.
+The purpose of this project was to become familiar with Vue.JS and creating my own templates. 
 
 ## Description:
 
-The Weekly Questions is a web application that provides questionnaires for users to answer. 
+The Questionnaire is a web application that provides questionnaires for users to answer. 
 
 These questionnaires may be used for a variety of purposes. 
 
@@ -16,9 +16,9 @@ The advertisements shown are dependent on the outcome.
 
 ## 3 Types of Questionnaires
 
-1. True/False Questionnaire
-2. Multiple Choice Questionnaire 
-3. Dropdown Menu Questionnaires
+1. True/False Questionnaire - Career Questions - suggests whether users would enjoy being a lumberjack. 
+2. Multiple Choice Questionnaire - Activity Questions - helps users decide what activities to do for the day.
+3. Dropdown Menu Questionnaires - Networking Questions - suggests events and clubs for users. 
 
 ## Pictures
 <p>[3 Types of Questionnaires]</p>
@@ -36,7 +36,7 @@ The advertisements shown are dependent on the outcome.
 <p> -Vue-Router </p>
 
 ## Set Up
-<p> npm installl - to install dependencies</p>
-<p> npm start - to start server </p>
+<p> - npm install - to install dependencies</p>
+<p> - npm start - to start server </p>
 
 
